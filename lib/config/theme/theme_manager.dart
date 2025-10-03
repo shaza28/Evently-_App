@@ -5,8 +5,25 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ThemeManager {
   static final ThemeData light = ThemeData(
-
+   useMaterial3:false,
     scaffoldBackgroundColor: AppColors.whiteBlue,
+    bottomAppBarTheme: BottomAppBarTheme(
+      color:AppColors.blue,
+      elevation:16,
+      shape:CircularNotchedRectangle(),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.transparent,
+      type:BottomNavigationBarType.fixed ,
+      elevation: 0,
+      selectedItemColor:AppColors.white,
+        unselectedItemColor:AppColors.white
+    ),
+    floatingActionButtonTheme:FloatingActionButtonThemeData(
+      shape:StadiumBorder(side: BorderSide(color:AppColors.white,width: 4.w )),
+       backgroundColor:AppColors.blue,
+      foregroundColor:AppColors.white,
+    ) ,
     inputDecorationTheme: InputDecorationTheme(
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14.r),

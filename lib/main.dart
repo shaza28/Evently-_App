@@ -20,7 +20,7 @@ class EventlyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RoutesManager.router,
-          initialRoute: AppRoutes.SplashScreen,
+          initialRoute: AppRoutes.mainLayout,
           theme: ThemeManager.light,
           //darkTheme: ThemeManager.dark,
           locale: const Locale("en"), // language => by default En
