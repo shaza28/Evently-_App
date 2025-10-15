@@ -15,14 +15,14 @@ class ThemeManager {
       secondary: Colors.transparent,
       onSecondary: AppColors.whiteBlue,
     ),
-    cardTheme:CardTheme(
+    cardTheme:CardThemeData(
       color:AppColors.whiteBlue,
       elevation:8,
       shape:RoundedRectangleBorder(
         borderRadius:BorderRadius.circular(8.r),
       ),
     ) ,
-    bottomAppBarTheme: BottomAppBarTheme(
+    bottomAppBarTheme: BottomAppBarThemeData(
       color: AppColors.blue,
       elevation: 16,
       shape: CircularNotchedRectangle(),
@@ -120,7 +120,7 @@ class ThemeManager {
       secondary: Colors.transparent,
       onSecondary: AppColors.white,
     ),
-    bottomAppBarTheme: BottomAppBarTheme(
+    bottomAppBarTheme: BottomAppBarThemeData(
       color: AppColors.blue,
       elevation: 16,
       shape: CircularNotchedRectangle(),

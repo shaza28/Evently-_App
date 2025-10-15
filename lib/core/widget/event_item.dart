@@ -1,8 +1,10 @@
+import 'package:evently_app/core/extention/date_ex.dart';
 import 'package:evently_app/core/resourses/colors_manager.dart';
 import 'package:evently_app/models/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class EventItem extends StatefulWidget {
   const EventItem({super.key, required this.event});
@@ -14,6 +16,21 @@ class EventItem extends StatefulWidget {
 
 class _EventItemState extends State<EventItem> {
   bool favourite = false;
+  List<String> months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,14 +56,14 @@ class _EventItemState extends State<EventItem> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "21",
+                    widget.event.dateTime.viewDayNumber,
                     style: GoogleFonts.inter(
                         fontSize: 20.sp,
                         color: AppColors.blue,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "Nov",
+                    widget.event.dateTime.viewMonthName,
                     style: GoogleFonts.inter(
                         fontSize: 14.sp,
                         color: AppColors.blue,

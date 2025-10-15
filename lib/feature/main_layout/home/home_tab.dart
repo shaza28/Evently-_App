@@ -4,7 +4,6 @@ import 'package:evently_app/core/widget/custom_tab_bar.dart';
 import 'package:evently_app/models/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/widget/event_item.dart';
 import '../../../models/category_model.dart';
