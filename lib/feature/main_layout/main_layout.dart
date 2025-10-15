@@ -39,7 +39,7 @@ class _MainLayoutState extends State<MainLayout> {
 
   BottomAppBar _buildBottomAppBar() {
     return BottomAppBar(
-      notchMargin: 8,
+      notchMargin: 4,
       child: BottomNavigationBar(
         currentIndex: selectedIndex,
         onTap: _onTap,
