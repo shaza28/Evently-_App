@@ -9,7 +9,7 @@ class CategoryModel  {
   CategoryModel({required this.id, required this.name,required this.icon,required this.imagePath});
 
  static List<CategoryModel> categoryWithAll=[
-    CategoryModel(id:"0", name:"All", icon:Icons.all_inclusive_rounded, imagePath:"imagePath"),
+    CategoryModel(id:"0", name:"All", icon:Icons.all_inclusive_rounded, imagePath:AppImages.workShop),
     CategoryModel(id:"1", name:"Sports", icon:Icons.sports_football_rounded, imagePath:AppImages.sports),
     CategoryModel(id:"2", name:"Birthday", icon:Icons.cake_rounded, imagePath:AppImages.birthday),
     CategoryModel(id:"3", name:"Meeting", icon:Icons.laptop_mac_rounded, imagePath:AppImages.meeting),
@@ -21,7 +21,7 @@ class CategoryModel  {
     CategoryModel(id:"9", name:"Book Club", icon:Icons.book_online_rounded, imagePath:AppImages.bookClub),
   ];
  static List<CategoryModel> categories=[
-   CategoryModel(id:"0", name:"All", icon:Icons.all_inclusive_rounded, imagePath:"imagePath"),
+   CategoryModel(id:"0", name:"All", icon:Icons.all_inclusive_rounded, imagePath:AppImages.workShop),
    CategoryModel(id:"1", name:"Sports", icon:Icons.sports_football_rounded, imagePath:AppImages.sports),
    CategoryModel(id:"2", name:"Birthday", icon:Icons.cake_rounded, imagePath:AppImages.birthday),
    CategoryModel(id:"3", name:"Meeting", icon:Icons.laptop_mac_rounded, imagePath:AppImages.meeting),
