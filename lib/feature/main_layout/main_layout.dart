@@ -1,3 +1,4 @@
+import 'package:evently_app/core/resourses/routes_manager/routes_manager.dart';
 import 'package:evently_app/feature/main_layout/favorite/favorite_tab.dart';
 import 'package:evently_app/feature/main_layout/home/home_tab.dart';
 import 'package:evently_app/feature/main_layout/map/map_tab.dart';
@@ -32,7 +33,9 @@ class _MainLayoutState extends State<MainLayout> {
 
   FloatingActionButton _buildFab() {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, AppRoutes.createEvent);
+      },
       child: Icon(Icons.add),
     );
   }

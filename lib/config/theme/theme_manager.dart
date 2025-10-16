@@ -6,6 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 class ThemeManager {
   static final ThemeData light = ThemeData(
     useMaterial3: false,
+    appBarTheme:AppBarTheme(
+      backgroundColor:AppColors.whiteBlue,
+      foregroundColor:AppColors.blue ,
+      titleTextStyle:GoogleFonts.roboto(fontSize:18.sp,fontWeight:FontWeight.w400,color: AppColors.blue,) ,
+    centerTitle: true,) ,
     primaryColor: AppColors.blue,
     scaffoldBackgroundColor: AppColors.whiteBlue,
     colorScheme: ColorScheme.fromSeed(
@@ -107,7 +112,14 @@ class ThemeManager {
           fontSize: 14.sp,
           color: AppColors.black,
           fontWeight: FontWeight.bold),
+      titleMedium: GoogleFonts.inter(
+          fontSize: 16.sp,
+          color: AppColors.black,
+          fontWeight: FontWeight.w400),
+
+
     ),
+
   );
   static final ThemeData dark = ThemeData(
     useMaterial3: false,
@@ -156,6 +168,11 @@ class ThemeManager {
       ),
       labelStyle: GoogleFonts.inter(
         fontSize: 14.sp,
+        fontWeight: FontWeight.w500,
+        color: AppColors.grey,
+      ),
+      hintStyle: GoogleFonts.inter(
+        fontSize: 16.sp,
         fontWeight: FontWeight.w500,
         color: AppColors.grey,
       ),
