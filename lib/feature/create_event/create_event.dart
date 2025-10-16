@@ -81,7 +81,7 @@ class _CreateEventState extends State<CreateEvent> {
                         showDatePicker(
                             context: context,
                             firstDate: DateTime.now(),
-                            lastDate: DateTime.now().add(Duration(days: 365)));
+                            lastDate: DateTime.now().add(Duration(days: 365)), initialDate: DateTime.now() );
                       }),
                 ],
               ),
