@@ -95,12 +95,10 @@ class _CreateEventState extends State<CreateEvent> {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Spacer(),
-                  CustomTextButton(
-                      text: "Choose Time",
-                      onTap: () {
-                        showTimePicker(
-                            context: context, initialTime: TimeOfDay.now());
-                      }),
+                  CustomTextButton(text: "Choose Time", onTap: () {
+                    showTimePicker(context: context, initialTime:TimeOfDay.now());
+
+                  }),
                 ],
               ),
               SizedBox(height: 24.h),
