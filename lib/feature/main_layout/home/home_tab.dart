@@ -1,13 +1,10 @@
-import 'package:evently_app/config/theme/theme_manager.dart';
 import 'package:evently_app/core/resourses/colors_manager.dart';
 import 'package:evently_app/core/widget/custom_tab_bar.dart';
+import 'package:evently_app/core/widget/event_item.dart';
+import 'package:evently_app/models/category_model.dart';
 import 'package:evently_app/models/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../../../core/widget/event_item.dart';
-import '../../../models/category_model.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -18,6 +15,7 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,7 +32,6 @@ class _HomeTabState extends State<HomeTab> {
             right: false,
             bottom: false,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
@@ -58,20 +55,26 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             Text(
                               "Cairo, Egypt",
-                              style: Theme.of(context).textTheme.headlineSmall,
+                              style:
+                              Theme.of(context).textTheme.headlineSmall,
                             ),
                           ],
                         ),
                       ],
                     ),
-                     Spacer(),
+
+                    const Spacer(),
+
                     IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.light_mode,
-                          color: AppColors.white,
-                        )),
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.light_mode,
+                        color: AppColors.white,
+                      ),
+                    ),
+
                     SizedBox(width: 10.w),
+
                     InkWell(
                       onTap: () {},
                       child: Card(
@@ -79,38 +82,45 @@ class _HomeTabState extends State<HomeTab> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             "En",
-                            style: Theme.of(context).textTheme.headlineMedium,
+                            style:
+                            Theme.of(context).textTheme.headlineMedium,
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
+
                 SizedBox(height: 12.h),
+
                 CustomTabBar(
-                    categories: CategoryModel.categoryWithAll,
-                    selectedBackgroundColor:
-                        Theme.of(context).colorScheme.primary,
-                    unselectedBackgroundColor:
-                        Theme.of(context).colorScheme.secondary,
-                    selectedForegroundColor:
-                        Theme.of(context).colorScheme.onPrimary,
-                    unselectedForegroundColor:
-                        Theme.of(context).colorScheme.onSecondary),
-                Expanded(
-                    child: ListView.builder(
-                  itemBuilder: (context, index) => EventItem(
-                    event: EventModel(
-                        category: CategoryModel.categories[3],
-                        title: "tittle",
-                        description:
-                            "Meeting for Updating The Development Method",
-                        dateTime: DateTime.now(),
-                        timeOfDay: TimeOfDay.now()),
-                  ),
-                  itemCount: 20,
-                )),
+                  categories: CategoryModel.categoryWithAll,
+                  selectedBackgroundColor:
+                  Theme.of(context).colorScheme.primary,
+                  unselectedBackgroundColor:
+                  Theme.of(context).colorScheme.secondary,
+                  selectedForegroundColor:
+                  Theme.of(context).colorScheme.onPrimary,
+                  unselectedForegroundColor:
+                  Theme.of(context).colorScheme.onSecondary,
+                ),
               ],
+            ),
+          ),
+        ),
+
+        Expanded(
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
+            itemCount: 20,
+            itemBuilder: (context, index) => EventItem(
+              event: EventModel(
+                category: CategoryModel.categories[3],
+                title: "tittle",
+                description: "Meeting for Updating The Development Method",
+                dateTime: DateTime.now(),
+                timeOfDay: TimeOfDay.now(),
+              ),
             ),
           ),
         ),

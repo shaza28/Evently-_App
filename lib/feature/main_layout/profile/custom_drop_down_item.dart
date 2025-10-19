@@ -44,7 +44,7 @@ class CustomDropDownItem extends StatelessWidget {
               const Spacer(),
               DropdownButton<String>(
                 underline: Container(),
-                value: "Light", // القيمة الافتراضية
+                value: selectedLabel, // القيمة الافتراضية
                 items: menuItem.map((String item) {
                   return DropdownMenuItem<String>(
                     value: item,
