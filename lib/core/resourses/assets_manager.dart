@@ -16,6 +16,7 @@ class AppImages{
   static const String sports="$base/sports.png";
   static const String workShop="$base/work_shop.png";
   static const String bookClub="$base/book_club.png";
+  static const String profile="$base/route_profile.png";
 
 
 

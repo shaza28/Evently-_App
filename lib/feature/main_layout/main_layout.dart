@@ -60,7 +60,7 @@ class _MainLayoutState extends State<MainLayout> {
           BottomNavigationBarItem(
               icon: Icon(
                   selectedIndex == 3 ? Icons.person : Icons.person_2_outlined),
-              label: "Person"),
+              label: "Profile"),
         ],
       ),
     );

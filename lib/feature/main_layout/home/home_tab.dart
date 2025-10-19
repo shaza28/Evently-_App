@@ -1,3 +1,4 @@
+/*
 import 'package:evently_app/config/theme/theme_manager.dart';
 import 'package:evently_app/core/resourses/colors_manager.dart';
 import 'package:evently_app/core/widget/custom_tab_bar.dart';
@@ -115,6 +116,136 @@ class _HomeTabState extends State<HomeTab> {
           ),
         ),
       ],
+    );
+  }
+}
+*/
+import 'package:evently_app/config/theme/theme_manager.dart';
+import 'package:evently_app/core/resourses/colors_manager.dart';
+import 'package:evently_app/core/widget/custom_tab_bar.dart';
+import 'package:evently_app/models/event_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../../../core/widget/event_item.dart';
+import '../../../models/category_model.dart';
+
+class HomeTab extends StatefulWidget {
+  const HomeTab({super.key});
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  int selectedIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold( // ✅ أضف Scaffold هنا
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              borderRadius:
+              BorderRadius.vertical(bottom: Radius.circular(16.r)),
+            ),
+            child: SafeArea(
+              left: false,
+              right: false,
+              bottom: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Welcome Back ✨",
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          Text(
+                            "Shaza",
+                            style: Theme.of(context).textTheme.headlineLarge,
+                          ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.location_on,
+                                color: AppColors.white,
+                              ),
+                              Text(
+                                "Cairo, Egypt",
+                                style:
+                                Theme.of(context).textTheme.headlineSmall,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.light_mode,
+                          color: AppColors.white,
+                        ),
+                      ),
+                      SizedBox(width: 10.w),
+                      InkWell(
+                        onTap: () {},
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "En",
+                              style:
+                              Theme.of(context).textTheme.headlineMedium,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 12.h),
+                  CustomTabBar(
+                    categories: CategoryModel.categoryWithAll,
+                    selectedBackgroundColor:
+                    Theme.of(context).colorScheme.primary,
+                    unselectedBackgroundColor:
+                    Theme.of(context).colorScheme.secondary,
+                    selectedForegroundColor:
+                    Theme.of(context).colorScheme.onPrimary,
+                    unselectedForegroundColor:
+                    Theme.of(context).colorScheme.onSecondary,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) => EventItem(
+                event: EventModel(
+                  category: CategoryModel.categories[3],
+                  title: "Title",
+                  description: "Meeting for Updating The Development Method",
+                  dateTime: DateTime.now(),
+                  timeOfDay: TimeOfDay.now(),
+                ),
+              ),
+              itemCount: 20,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
