@@ -21,9 +21,10 @@ class EventlyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RoutesManager.router,
           initialRoute: AppRoutes.mainLayout,
-          theme: ThemeManager.light,
-          //darkTheme: ThemeManager.dark,
-          locale: const Locale("en"), // language => by default En
+          theme:ThemeManager.dark ,
+          themeMode: ThemeMode.dark,
+          darkTheme: ThemeManager.dark,
+          locale: Locale("en"), // language => by default En
         );
       },
       child: const SizedBox.shrink(), // عشان ScreenUtilInit محتاج child

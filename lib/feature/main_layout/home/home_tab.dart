@@ -55,16 +55,13 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             Text(
                               "Cairo, Egypt",
-                              style:
-                              Theme.of(context).textTheme.headlineSmall,
+                              style: Theme.of(context).textTheme.headlineSmall,
                             ),
                           ],
                         ),
                       ],
                     ),
-
                     const Spacer(),
-
                     IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -72,9 +69,7 @@ class _HomeTabState extends State<HomeTab> {
                         color: AppColors.white,
                       ),
                     ),
-
                     SizedBox(width: 10.w),
-
                     InkWell(
                       onTap: () {},
                       child: Card(
@@ -82,33 +77,25 @@ class _HomeTabState extends State<HomeTab> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             "En",
-                            style:
-                            Theme.of(context).textTheme.headlineMedium,
+                            style: Theme.of(context).textTheme.headlineMedium,
                           ),
                         ),
                       ),
                     ),
                   ],
                 ),
-
                 SizedBox(height: 12.h),
-
                 CustomTabBar(
                   categories: CategoryModel.categoryWithAll,
-                  selectedBackgroundColor:
-                  Theme.of(context).colorScheme.primary,
-                  unselectedBackgroundColor:
-                  Theme.of(context).colorScheme.secondary,
-                  selectedForegroundColor:
-                  Theme.of(context).colorScheme.onPrimary,
-                  unselectedForegroundColor:
-                  Theme.of(context).colorScheme.onSecondary,
+                  selectedBackgroundColor: AppColors.blue,
+                  unselectedBackgroundColor: Colors.transparent,
+                  selectedForegroundColor: AppColors.black,
+                  unselectedForegroundColor: AppColors.whiteBlue,
                 ),
               ],
             ),
           ),
         ),
-
         Expanded(
           child: ListView.builder(
             padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),

@@ -36,19 +36,25 @@ class CustomDropDownItem extends StatelessWidget {
               Text(
                 selectedLabel,
                 style: GoogleFonts.inter(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.black,
-                ),
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.blue),
               ),
               const Spacer(),
               DropdownButton<String>(
+                dropdownColor: AppColors.white,
                 underline: Container(),
                 value: selectedLabel, // القيمة الافتراضية
                 items: menuItem.map((String item) {
                   return DropdownMenuItem<String>(
                     value: item,
-                    child: Text(item),
+                    child: Text(
+                      item,
+                      style: GoogleFonts.inter(
+                          color: AppColors.black,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400),
+                    ),
                   );
                 }).toList(),
                 onChanged: (selectedItem) {

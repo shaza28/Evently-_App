@@ -17,7 +17,7 @@ class CreateEvent extends StatefulWidget {
 }
 
 class _CreateEventState extends State<CreateEvent> {
-  CategoryModel selcetedCategory = CategoryModel.categories[0];
+  CategoryModel selcetedCategory = CategoryModel.categories[1];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +88,7 @@ class _CreateEventState extends State<CreateEvent> {
               SizedBox(height: 16.h),
               Row(
                 children: [
-                  Icon(Icons.access_time, color: AppColors.black),
+                  Icon(Icons.access_time),
                   SizedBox(width: 4.w),
                   Text(
                     "Event Time",
