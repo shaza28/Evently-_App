@@ -46,7 +46,7 @@ class _CreateEventState extends State<CreateEvent> {
                   selectedBackgroundColor: AppColors.blue,
                   unselectedBackgroundColor: Colors.transparent,
                   selectedForegroundColor: AppColors.black,
-                  unselectedForegroundColor: AppColors.whiteBlue),
+                  unselectedForegroundColor: AppColors.blue),
               SizedBox(height: 16.h),
               Text(
                 appLocalizations.title,
@@ -70,7 +70,7 @@ class _CreateEventState extends State<CreateEvent> {
               SizedBox(height: 16.h),
               Row(
                 children: [
-                  Icon(Icons.date_range_outlined, color: AppColors.white),
+                  Icon(Icons.date_range_outlined, color: AppColors.black),
                   SizedBox(width: 4.w),
                   Text(
                     appLocalizations.event_date,

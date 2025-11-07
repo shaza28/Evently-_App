@@ -22,7 +22,7 @@ class ThemeManager {
       shape: CircularNotchedRectangle(),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.blue,
         type: BottomNavigationBarType.fixed,
         elevation: 0,
         selectedItemColor: AppColors.white,
