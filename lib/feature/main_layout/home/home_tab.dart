@@ -5,6 +5,11 @@ import 'package:evently_app/models/category_model.dart';
 import 'package:evently_app/models/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../../providers/config_provider.dart';
+
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -15,11 +20,11 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    var configProvider = Provider.of<ConfigProvider>(context);    return Column(
+        children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
           width: double.infinity,
@@ -40,7 +45,7 @@ class _HomeTabState extends State<HomeTab> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Welcome Back ✨",
+                         "${appLocalizations.welcome_back} ✨",
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Text(
@@ -63,9 +68,11 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                     const Spacer(),
                     IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.light_mode,
+                      onPressed: () {
+                        configProvider.changeAppTheme(configProvider.isDark?ThemeMode.light:ThemeMode.dark,);
+                      },
+                      icon:  Icon(
+                        configProvider.isDark?Icons.dark_mode:Icons.light_mode,
                         color: AppColors.white,
                       ),
                     ),
@@ -86,7 +93,7 @@ class _HomeTabState extends State<HomeTab> {
                 ),
                 SizedBox(height: 12.h),
                 CustomTabBar(
-                  categories: CategoryModel.categoryWithAll,
+                  categories: CategoryModel.getCategoriesWithAll(context),
                   selectedBackgroundColor: AppColors.blue,
                   unselectedBackgroundColor: Colors.transparent,
                   selectedForegroundColor: AppColors.black,
@@ -102,7 +109,7 @@ class _HomeTabState extends State<HomeTab> {
             itemCount: 20,
             itemBuilder: (context, index) => EventItem(
               event: EventModel(
-                category: CategoryModel.categories[3],
+                category: CategoryModel.getCategories(context)[2],
                 title: "tittle",
                 description: "Meeting for Updating The Development Method",
                 dateTime: DateTime.now(),

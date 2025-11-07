@@ -7,6 +7,7 @@ import 'package:evently_app/core/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../../models/category_model.dart';
 
 class CreateEvent extends StatefulWidget {
@@ -17,12 +18,13 @@ class CreateEvent extends StatefulWidget {
 }
 
 class _CreateEventState extends State<CreateEvent> {
-  CategoryModel selcetedCategory = CategoryModel.categories[1];
+   late CategoryModel selcetedCategory = CategoryModel.getCategories(context)[0];
   @override
   Widget build(BuildContext context) {
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Event"),
+        title: Text(appLocalizations.create_event),
       ),
       body: Padding(
         padding: REdgeInsets.all(8.0),
@@ -40,48 +42,49 @@ class _CreateEventState extends State<CreateEvent> {
                       selcetedCategory = category;
                     });
                   },
-                  categories: CategoryModel.categories,
+                  categories: CategoryModel.getCategories(context),
                   selectedBackgroundColor: AppColors.blue,
                   unselectedBackgroundColor: Colors.transparent,
-                  selectedForegroundColor: AppColors.whiteBlue,
-                  unselectedForegroundColor: AppColors.blue),
+                  selectedForegroundColor: AppColors.black,
+                  unselectedForegroundColor: AppColors.whiteBlue),
               SizedBox(height: 16.h),
               Text(
-                "Title",
+                appLocalizations.title,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(height: 8.h),
               CustomTextFormField(
-                  hintText: "Event Title",
+                  hintText: appLocalizations.event_title,
                   prefixIcon: Icon(Icons.edit_note_sharp),
                   keyboardType: TextInputType.text),
               SizedBox(height: 16.h),
               Text(
-                "Description",
+                appLocalizations.description,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(height: 8.h),
               CustomTextFormField(
-                  hintText: "Event Description",
+                  hintText: appLocalizations.event_description,
                   keyboardType: TextInputType.text,
                   maxLines: 4),
               SizedBox(height: 16.h),
               Row(
                 children: [
-                  Icon(Icons.date_range_outlined, color: AppColors.black),
+                  Icon(Icons.date_range_outlined, color: AppColors.white),
                   SizedBox(width: 4.w),
                   Text(
-                    "Event Date",
+                    appLocalizations.event_date,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Spacer(),
                   CustomTextButton(
-                      text: "Choose Date",
+                      text: appLocalizations.choose_date,
                       onTap: () {
                         showDatePicker(
                             context: context,
                             firstDate: DateTime.now(),
-                            lastDate: DateTime.now().add(Duration(days: 365)), initialDate: DateTime.now() );
+                            lastDate: DateTime.now().add(Duration(days: 365)),
+                            initialDate: DateTime.now());
                       }),
                 ],
               ),
@@ -91,18 +94,21 @@ class _CreateEventState extends State<CreateEvent> {
                   Icon(Icons.access_time),
                   SizedBox(width: 4.w),
                   Text(
-                    "Event Time",
+                    appLocalizations.event_time,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Spacer(),
-                  CustomTextButton(text: "Choose Time", onTap: () {
-                    showTimePicker(context: context, initialTime:TimeOfDay.now());
-
-                  }),
+                  CustomTextButton(
+                      text: appLocalizations.choose_time,
+                      onTap: () {
+                        showTimePicker(
+                            context: context, initialTime: TimeOfDay.now());
+                      }),
                 ],
               ),
               SizedBox(height: 24.h),
-              CustomElevatedButtom(text: "Create Event", onPress: () {}),
+              CustomElevatedButtom(
+                  text: appLocalizations.create_event, onPress: () {}),
             ],
           ),
         ),

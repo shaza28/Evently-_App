@@ -9,10 +9,12 @@ class CustomDropDownItem extends StatelessWidget {
       {super.key,
       required this.label,
       required this.selectedLabel,
-      required this.menuItem});
+      required this.menuItem,
+      this.onChange});
   final String label;
   final String selectedLabel;
   final List<String> menuItem;
+  final void Function(String?)? onChange;
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +59,7 @@ class CustomDropDownItem extends StatelessWidget {
                     ),
                   );
                 }).toList(),
-                onChanged: (selectedItem) {
-                  print(selectedItem);
-                },
+                onChanged: onChange,
               ),
             ],
           ),

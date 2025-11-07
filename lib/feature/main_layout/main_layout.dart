@@ -5,6 +5,8 @@ import 'package:evently_app/feature/main_layout/map/map_tab.dart';
 import 'package:evently_app/feature/main_layout/profile/profile_tab.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class MainLayout extends StatefulWidget {
   MainLayout({super.key});
 
@@ -20,8 +22,10 @@ class _MainLayoutState extends State<MainLayout> {
     ProfileTab(),
   ];
   int selectedIndex = 0;
+  late AppLocalizations appLocalizations;
   @override
   Widget build(BuildContext context) {
+   appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       extendBody: true, // content appears back of floating action bottom
       body: tabs[selectedIndex],
@@ -49,21 +53,21 @@ class _MainLayoutState extends State<MainLayout> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(selectedIndex == 0 ? Icons.home : Icons.home_outlined),
-              label: "Home"),
+              label: appLocalizations.home),
           BottomNavigationBarItem(
               icon: Icon(selectedIndex == 1
                   ? Icons.location_on
                   : Icons.location_on_outlined),
-              label: "Map"),
+              label: appLocalizations.map),
           BottomNavigationBarItem(
               icon: Icon(selectedIndex == 2
                   ? Icons.favorite
                   : Icons.favorite_border_outlined),
-              label: "Favorite"),
+              label:appLocalizations.favourite),
           BottomNavigationBarItem(
               icon: Icon(
                   selectedIndex == 3 ? Icons.person : Icons.person_2_outlined),
-              label: "Profile"),
+              label: appLocalizations.profile),
         ],
       ),
     );
