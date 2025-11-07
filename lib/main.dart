@@ -28,11 +28,11 @@ class EventlyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RoutesManager.router,
-          initialRoute: AppRoutes.onBoardingScreen,
-          theme: ThemeManager.dark,
+          initialRoute: AppRoutes.mainLayout,
+          //theme: ThemeManager.dark,
           themeMode: configProvider.currentTheme,
-          darkTheme: ThemeManager.dark,
-          locale: const Locale("ar"),
+          //darkTheme: ThemeManager.dark,
+          locale: const Locale("en"),
 
           localizationsDelegates: const [
             AppLocalizations.delegate, // ملف الترجمة المخصص

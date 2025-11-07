@@ -26,7 +26,7 @@ class ThemeManager {
         type: BottomNavigationBarType.fixed,
         elevation: 0,
         selectedItemColor: AppColors.white,
-        unselectedItemColor: AppColors.white),
+        unselectedItemColor: AppColors.whiteBlue),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       shape:
           StadiumBorder(side: BorderSide(color: AppColors.white, width: 4.w)),
