@@ -105,9 +105,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/resourses/assets_manager.dart';
 import '../../../core/resourses/colors_manager.dart';
+import '../../../l10n/app_localizations.dart';
+import '../../../providers/config_provider.dart';
 import 'custom_drop_down_item.dart';
 
 class ProfileTab extends StatelessWidget {
@@ -115,7 +118,11 @@ class ProfileTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView( // خلي الصفحة scrollable
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+    var configProvider = Provider.of<ConfigProvider>(
+        context); // point of object that shares on the app
+    return SingleChildScrollView(
+      // خلي الصفحة scrollable
       child: Container(
         margin: REdgeInsets.symmetric(horizontal: 18),
         child: Column(
@@ -127,7 +134,7 @@ class ProfileTab extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.blue,
                 borderRadius:
-                BorderRadius.only(bottomLeft: Radius.circular(16.r)),
+                    BorderRadius.only(bottomLeft: Radius.circular(16.r)),
               ),
               child: SafeArea(
                 bottom: false,
@@ -164,13 +171,19 @@ class ProfileTab extends StatelessWidget {
             ),
             SizedBox(height: 24.h),
             CustomDropDownItem(
-              label: "Theme",
-              selectedLabel: "Light",
-              menuItem: ["Light", "Dark"],
+              label: configProvider.isDark
+                  ? appLocalizations.dark
+                  : appLocalizations.light,
+              selectedLabel: appLocalizations.light,
+              menuItem: [appLocalizations.light, appLocalizations.dark],
+              onChange: (newTheme) {
+                configProvider.changeAppTheme(
+                    newTheme == appLocalizations.light? ThemeMode.light : ThemeMode.dark);
+              },
             ),
             SizedBox(height: 24.h), // بدل Spacer
             CustomDropDownItem(
-              label: "Language",
+              label: appLocalizations.language,
               selectedLabel: "English",
               menuItem: ["English", "Arabic"],
             ),
@@ -193,7 +206,7 @@ class ProfileTab extends StatelessWidget {
                   children: [
                     Icon(Icons.logout),
                     SizedBox(width: 8.h),
-                    Text("Logout"),
+                    Text(appLocalizations.log_out),
                   ],
                 ),
               ),
@@ -205,4 +218,3 @@ class ProfileTab extends StatelessWidget {
     );
   }
 }
-

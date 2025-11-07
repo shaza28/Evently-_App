@@ -17,6 +17,10 @@ class AppImages{
   static const String workShop="$base/work_shop.png";
   static const String bookClub="$base/book_club.png";
   static const String profile="$base/route_profile.png";
+  static const String firstOnBoarding="$base/first_onboarding.png";
+  static const String secondOnBoarding="$base/second_onboarding.png";
+  static const String thirdOnBoarding ="$base/third_onboarding.png";
+  static const String fourthOnBoarding ="$base/fourth_onboarding.png";
 
 
 
