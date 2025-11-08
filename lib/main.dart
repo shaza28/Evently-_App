@@ -1,25 +1,35 @@
-
 import 'package:evently_app/core/resourses/routes_manager/router.dart';
 import 'package:evently_app/core/resourses/routes_manager/routes_manager.dart';
 import 'package:evently_app/config/theme/theme_manager.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/providers/config_provider.dart';
+import 'package:evently_app/providers/laguage_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create:(context)=>ConfigProvider() ,
-      child:EventlyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ConfigProvider()),
+        ChangeNotifierProvider(create: (context) => LanguageProvider()),
+      ],
+      child: EventlyApp(),
+    ),
+  );
 }
 
 class EventlyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var configProvider= Provider.of<ConfigProvider>(context);// point of object that shares on the app object already created
-   // var configProvider=ConfigProvider();create object  كأنى استلفت فلوس من حد وبرجعها لحد تانى
+    // point of object that shares on the app object already created
+    var configProvider = Provider.of<ConfigProvider>(context);
+    var languageProvider = Provider.of<LanguageProvider>(context);
+
+    // كأنى استلفت فلوس من حد وبرجعها لحد تانى
+
     return ScreenUtilInit(
       designSize: const Size(393, 841),
       splitScreenMode: true, // فكرة فتح اكتر من app فى نفس الوقت
@@ -30,9 +40,11 @@ class EventlyApp extends StatelessWidget {
           onGenerateRoute: RoutesManager.router,
           initialRoute: AppRoutes.mainLayout,
           theme: ThemeManager.light,
-          themeMode: configProvider.currentTheme,
-         darkTheme: ThemeManager.dark,
-          locale: const Locale("en"),
+          darkTheme: ThemeManager.dark,
+          themeMode: configProvider.currentTheme, // theme mode => light or dark
+
+          // language => take from provider (dynamic)
+          locale: languageProvider.currentLanguage,
 
           localizationsDelegates: const [
             AppLocalizations.delegate, // ملف الترجمة المخصص
@@ -51,7 +63,6 @@ class EventlyApp extends StatelessWidget {
     );
   }
 }
-
 
 /*
 import 'package:evently_app/core/resourses/routes_manager/router.dart';

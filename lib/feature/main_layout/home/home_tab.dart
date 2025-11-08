@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../providers/config_provider.dart';
+import '../../../providers/laguage_provider.dart';
 
 
 class HomeTab extends StatefulWidget {
@@ -78,17 +79,28 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                     SizedBox(width: 10.w),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        // لما المستخدم يضغط => نبدّل اللغة
+                        var languageProvider = Provider.of<LanguageProvider>(context, listen: false);
+
+                        if (languageProvider.isEnglish) {
+                          languageProvider.changeAppLanguage(const Locale('ar')); // غيّر للعربي
+                        } else {
+                          languageProvider.changeAppLanguage(const Locale('en')); // غيّر للإنجليزي
+                        }
+                      },
                       child: Card(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            "En",
+                            // النص بيتغيّر حسب اللغة الحالية
+                            Provider.of<LanguageProvider>(context).isEnglish ? "En" : "ع",
                             style: Theme.of(context).textTheme.headlineMedium,
                           ),
                         ),
                       ),
                     ),
+
                   ],
                 ),
                 SizedBox(height: 12.h),
