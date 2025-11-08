@@ -189,16 +189,16 @@ class ThemeManager {
     )),
     textTheme: TextTheme(
       headlineSmall: GoogleFonts.inter(
-          fontSize: 14.sp, fontWeight: FontWeight.w400, color: AppColors.white),
+          fontSize: 14.sp, fontWeight: FontWeight.w400, color: AppColors.offWhite),
       headlineLarge: GoogleFonts.inter(
         fontSize: 24.sp,
         fontWeight: FontWeight.bold,
-        color: AppColors.white,
+        color: AppColors.offWhite,
       ),
       headlineMedium: GoogleFonts.inter(
         fontSize: 14.sp,
         fontWeight: FontWeight.w700,
-        color: AppColors.blue,
+        color: AppColors.darkBlue,
       ),
       bodySmall: GoogleFonts.inter(
         fontSize: 16.sp,

@@ -1,15 +1,18 @@
+import 'package:evently_app/core/prefs_manager/prefs_manager.dart';
 import 'package:evently_app/core/resourses/routes_manager/router.dart';
 import 'package:evently_app/core/resourses/routes_manager/routes_manager.dart';
 import 'package:evently_app/config/theme/theme_manager.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
-import 'package:evently_app/providers/config_provider.dart';
+import 'package:evently_app/providers/theme_provider.dart';
 import 'package:evently_app/providers/laguage_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await PrefsManager.init();
   runApp(
     MultiProvider(
       providers: [

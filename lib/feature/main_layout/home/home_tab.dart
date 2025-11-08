@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../../l10n/app_localizations.dart';
-import '../../../providers/config_provider.dart';
+import '../../../providers/theme_provider.dart';
 import '../../../providers/laguage_provider.dart';
 
 
@@ -55,9 +55,9 @@ class _HomeTabState extends State<HomeTab> {
                         ),
                         Row(
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.location_on,
-                              color: AppColors.white,
+                              color: configProvider.isDark ? AppColors.offWhite:AppColors.white,
                             ),
                             Text(
                               "Cairo, Egypt",
@@ -74,7 +74,7 @@ class _HomeTabState extends State<HomeTab> {
                       },
                       icon:  Icon(
                         configProvider.isDark?Icons.dark_mode:Icons.light_mode,
-                        color: AppColors.white,
+                        color:configProvider.isDark ?AppColors.offWhite:AppColors.white,
                       ),
                     ),
                     SizedBox(width: 10.w),
@@ -90,6 +90,7 @@ class _HomeTabState extends State<HomeTab> {
                         }
                       },
                       child: Card(
+                        color: configProvider.isDark ?AppColors.offWhite:AppColors.white,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(

@@ -110,7 +110,7 @@ import 'package:provider/provider.dart';
 import '../../../core/resourses/assets_manager.dart';
 import '../../../core/resourses/colors_manager.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../../providers/config_provider.dart';
+import '../../../providers/theme_provider.dart';
 import 'custom_drop_down_item.dart';
 
 class ProfileTab extends StatelessWidget {
