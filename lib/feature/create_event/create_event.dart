@@ -44,7 +44,7 @@ class _CreateEventState extends State<CreateEvent> {
                   },
                   categories: CategoryModel.getCategories(context),
                   selectedBackgroundColor: AppColors.blue,
-                  unselectedBackgroundColor: Colors.transparent,
+                  unselectedBackgroundColor: Colors.blue,
                   selectedForegroundColor: AppColors.black,
                   unselectedForegroundColor: AppColors.blue),
               SizedBox(height: 16.h),

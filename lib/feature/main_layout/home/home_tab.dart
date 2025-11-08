@@ -94,9 +94,9 @@ class _HomeTabState extends State<HomeTab> {
                 SizedBox(height: 12.h),
                 CustomTabBar(
                   categories: CategoryModel.getCategoriesWithAll(context),
-                  selectedBackgroundColor: AppColors.blue,
+                  selectedBackgroundColor: AppColors.white,
                   unselectedBackgroundColor: Colors.transparent,
-                  selectedForegroundColor: AppColors.black,
+                  selectedForegroundColor: AppColors.blue,
                   unselectedForegroundColor: AppColors.whiteBlue,
                 ),
               ],
